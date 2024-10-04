@@ -3,6 +3,8 @@
 
 ### Install Local
 
+udo systemctl restart gunicorn
+
 ```sh
 
 // Crea un entorno virtual:
