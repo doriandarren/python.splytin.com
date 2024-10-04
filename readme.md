@@ -1,50 +1,37 @@
 ## Python Project
 
 
-### Install
-
-
-app.run(host='0.0.0.0', port=8090)
-
-
+### Install Local
 
 ```sh
 
-
-Pasos:
-Crea un entorno virtual:
-
+// Crea un entorno virtual:
 
 python3 -m venv myenv
 source myenv/bin/activate
-Instala Flask:
 
-
+// Instala Flask:
 pip install Flask
-Prueba la aplicación: Ejecuta el archivo app.py para probarlo localmente.
 
-
+// Prueba la aplicación: Ejecuta el archivo app.py para probarlo localmente.
 // Run server
 python app.py
 
 
 
 //****** Export by server requeriments
-
 //--- Create file Requerimets (local)
 pip freeze > requirements.txt
 
-//--- Server (Plesk)
+//--- Para el Server (Plesk)
 pip3 install -r requirements.txt
-
-
 
 ```
 
 
 
 
-## Install Server
+## Install Server (Servidor Plesk)
 
 ```sh
 
@@ -55,16 +42,10 @@ pip install -r requirements.txt
 pip install Flask
 pip install gunicorn
 
-```
 
 
-
-## PLESK Servidor - WSGI (es el que tengo que buscar)
-
-
-```sh
-
-Configurar en Dominio -> Apache & nginx Settings -> Additional directives for HTTPS. El servicio se ejecutará con Apache y escribir:
+// PLESK Servidor - WSGI (es el que tengo que buscar)
+// Configurar en Dominio -> Apache & nginx Settings -> Additional directives for HTTPS. El servicio se ejecutará con Apache y escribir:
 
 ...
 <Location "/">
@@ -74,14 +55,14 @@ Configurar en Dominio -> Apache & nginx Settings -> Additional directives for HT
 ...
 
 
-// Luego para iniciar el servidor
+// Luego para iniciar el servidor (solo para probar)
 gunicorn app:app
 
 
-//Nota: se dejo como Gunicorn como un servicio con systemd
+// importate: se agrego Gunicorn como un servicio con systemd
 
 sudo nano /etc/systemd/system/gunicorn.service
-
+...
 [Unit]
 Description=Gunicorn instance to serve python.splytin.com
 After=network.target
@@ -94,6 +75,16 @@ ExecStart=/var/www/vhosts/splytin.com/python.splytin.com/venv/bin/gunicorn --wor
 
 [Install]
 WantedBy=multi-user.target
+...
+
+
+sudo systemctl daemon-reload
+sudo systemctl start gunicorn
+sudo systemctl enable gunicorn
+sudo systemctl status gunicorn
+
+// y para los cambios
+sudo systemctl restart gunicorn
 
 
 ```
