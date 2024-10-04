@@ -1,23 +1,37 @@
 ## Python Project
 
 
+app.run(debug=True, host='0.0.0.0', port=5003)
+
+
+
 ### Install Local
 
-udo systemctl restart gunicorn
+
 
 ```sh
 
-// Crea un entorno virtual:
+// Crea un entorno virtual (https://flask.palletsprojects.com/en/3.0.x/installation/)
 
-python3 -m venv myenv
-source myenv/bin/activate
+python3 -m venv .venv
+. .venv/bin/activate  // Entorno virtual
 
 // Instala Flask:
 pip install Flask
+pip list // lista dependencias
 
-// Prueba la aplicación: Ejecuta el archivo app.py para probarlo localmente.
+
+
+// Luego para ejecutar siempre se debe crear el entorno virtual:
+. .venv/bin/activate  // Entorno virtual
+
+
 // Run server
-python app.py
+flask --app index --debug run  //debug
+flask --app index run          // Sin debug
+
+
+
 
 
 
@@ -43,7 +57,6 @@ pip install -r requirements.txt
 // Luego:
 pip install Flask
 pip install gunicorn
-
 
 
 // PLESK Servidor - WSGI (es el que tengo que buscar)
@@ -94,3 +107,10 @@ sudo systemctl restart gunicorn
 
 
 
+## Install ORM Flask-SQLAlchemy
+
+```sh
+
+pip install Flask-SQLAlchemy
+
+```
