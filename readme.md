@@ -1,5 +1,6 @@
 ## Python Project
 
+
 ### Install
 
 
@@ -47,7 +48,56 @@ pip3 install -r requirements.txt
 
 ```sh
 
+// Instala los requirimientos:
 pip install -r requirements.txt
+
+// Luego:
+pip install Flask
+pip install gunicorn
+
+```
+
+
+
+## PLESK Servidor - WSGI (es el que tengo que buscar)
+
+
+```sh
+
+Configurar en Dominio -> Apache & nginx Settings -> Additional directives for HTTPS. El servicio se ejecutará con Apache y escribir:
+
+...
+<Location "/">
+	ProxyPass http://localhost:8000/
+	ProxyPassReverse http://localhost:8000/
+</Location>
+...
+
+
+// Luego para iniciar el servidor
+gunicorn app:app
+
+
+//Nota: se dejo como Gunicorn como un servicio con systemd
+
+sudo nano /etc/systemd/system/gunicorn.service
+
+[Unit]
+Description=Gunicorn instance to serve python.splytin.com
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/vhosts/splytin.com/python.splytin.com
+ExecStart=/var/www/vhosts/splytin.com/python.splytin.com/venv/bin/gunicorn --workers 3 --bind 0.0.0.0:8000 app:app
+
+[Install]
+WantedBy=multi-user.target
 
 
 ```
+
+
+
+
