@@ -11,10 +11,10 @@ app.run(debug=True, host='0.0.0.0', port=5003)
 
 ```sh
 
-// Crea un entorno virtual (https://flask.palletsprojects.com/en/3.0.x/installation/)
-
+// Entorno virtual (https://flask.palletsprojects.com/en/3.0.x/installation/)
 python3 -m venv .venv
-. .venv/bin/activate  // Entorno virtual
+source .venv/bin/activate     // MacOs
+.\.venv\Scripts\activate      // Windows
 
 // Instala Flask:
 pip install Flask
