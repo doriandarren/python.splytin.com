@@ -21,9 +21,18 @@ pip install Flask
 pip list // lista dependencias
 
 
+// Entorno virtual
+source .venv/bin/activate
+pip install --upgrade pip
 
-// Luego para ejecutar siempre se debe crear el entorno virtual:
-. .venv/bin/activate  // Entorno virtual
+
+//Borrar:
+Eliminar carpeta .venv
+python3.13 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+
+
 
 
 // Run server
@@ -35,11 +44,13 @@ flask --app index run          // Sin debug
 
 
 
+
 //****** Export by server requeriments
 //--- Create file Requerimets (local)
 pip freeze > requirements.txt
 
 //--- Para el Server (Plesk)
+pip install --upgrade pip
 pip3 install -r requirements.txt
 
 ```

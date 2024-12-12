@@ -74,9 +74,6 @@ coverage.xml
 .mypy_cache/
 
 # Environments
-env/
-venv/
-
 myenv/
 
 
