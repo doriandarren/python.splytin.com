@@ -12,44 +12,37 @@ app.run(debug=True, host='0.0.0.0', port=5003)
 ```sh
 
 // Entorno virtual (https://flask.palletsprojects.com/en/3.0.x/installation/)
-python3 -m venv .venv
-source .venv/bin/activate     // MacOs
-.\.venv\Scripts\activate      // Windows
+- python3 -m venv .venv
+- source .venv/bin/activate     // MacOs
+- .\.venv\Scripts\activate      // Windows
+- pip install --upgrade pip
+
 
 // Instala Flask:
-pip install Flask
-pip list // lista dependencias
+- pip install Flask
+- pip list                       // lista dependencias
 
 
-// Entorno virtual
-source .venv/bin/activate
-pip install --upgrade pip
-
-
-//Borrar:
-Eliminar carpeta .venv
-python3.13 -m venv .venv
-source .venv/bin/activate
-pip install --upgrade pip
-
+//Borrar Entorno virtual
+- Eliminar carpeta .venv
+- python3.13 -m venv .venv
+- source .venv/bin/activate
+- pip install --upgrade pip
 
 
 
 // Run server
-flask --app index --debug run  //debug
-flask --app index run          // Sin debug
+flask --app index --debug run     //debug
+flask --app index run             // Sin debug
 
 
-
-
-
-
-
-//****** Export by server requeriments
-//--- Create file Requerimets (local)
+// Export server requeriments
+// LOCAL Create file Requerimets (local)
 pip freeze > requirements.txt
 
-//--- Para el Server (Plesk)
+
+// Import server requeriments  (Plesk)
+// PLESK Import
 pip install --upgrade pip
 pip3 install -r requirements.txt
 
