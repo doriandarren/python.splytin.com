@@ -30,12 +30,6 @@ app.run(debug=True, host='0.0.0.0', port=5003)
 - pip install --upgrade pip
 
 
-
-// Run server
-flask --app index --debug run     //debug
-flask --app index run             // Sin debug
-
-
 // Export server requeriments
 // LOCAL Create file Requerimets (local)
 pip freeze > requirements.txt
@@ -44,7 +38,17 @@ pip freeze > requirements.txt
 // Import server requeriments  (Plesk)
 // PLESK Import
 pip install --upgrade pip
+pip install -r requirements.txt
+
+pip3 install --upgrade pip
 pip3 install -r requirements.txt
+
+
+
+
+// Run server
+flask --app index --debug run     //debug
+flask --app index run             // Sin debug
 
 ```
 
