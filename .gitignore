@@ -79,3 +79,6 @@ myenv/
 
 # macOS
 .DS_Store
+
+# dotenv
+.env

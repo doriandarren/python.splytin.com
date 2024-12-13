@@ -115,7 +115,19 @@ sudo systemctl restart gunicorn
 
 
 
-## Install ORM Flask-SQLAlchemy
+
+
+
+## Install python-dotenv
+
+```sh
+
+pip install python-dotenv
+
+```
+
+
+## Install ORM Flask-SQLAlchemy
 
 ```sh
 
