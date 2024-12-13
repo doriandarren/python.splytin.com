@@ -82,3 +82,4 @@ myenv/
 
 # dotenv
 .env
+/.env
