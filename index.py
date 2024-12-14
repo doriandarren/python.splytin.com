@@ -31,19 +31,19 @@ def create_app():
 
 
     # Registrar todos los blueprints de forma dinámica
-    for bp in blueprints:
-        app.register_blueprint(bp)
+    # for bp in blueprints:
+    #     app.register_blueprint(bp)
 
-    # # Routes
-    # @app.route('/')
-    # @app.route('/<name>')
-    # def index(name=''):
-    #     return f'<h1>Hola mundo desde un café {name}</h1>'
-    #
-    # @app.route('/error')
-    # def error():
-    #     v = 1 / 0
-    #     return jsonify({"mensaje": "Esto nuna se ejecutará"})
+    # Routes
+    @app.route('/')
+    @app.route('/<name>')
+    def index(name=''):
+        return f'<h1>Hola mundo desde un café {name}</h1>'
+
+    @app.route('/error')
+    def error():
+        v = 1 / 0
+        return jsonify({"mensaje": "Esto nuna se ejecutará"})
 
 
 
