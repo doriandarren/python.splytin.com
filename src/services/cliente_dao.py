@@ -1,5 +1,5 @@
 from src.database.conexion import Conexion
-from src.models.clientes.cliente import Cliente
+from src.models.cliente import Cliente
 
 
 
