@@ -83,3 +83,6 @@ myenv/
 # dotenv
 .env
 /.env
+
+logs
+/logs
