@@ -79,7 +79,7 @@ pip install gunicorn
 
 
 // Luego para iniciar el servidor (solo para probar)
-gunicorn app:app
+gunicorn index:app
 
 
 // importate: se agrego Gunicorn como un servicio con systemd
@@ -94,7 +94,7 @@ After=network.target
 User=www-data
 Group=www-data
 WorkingDirectory=/var/www/vhosts/splytin.com/python.splytin.com
-ExecStart=/var/www/vhosts/splytin.com/python.splytin.com/venv/bin/gunicorn --workers 3 --bind 0.0.0.0:8000 app:app
+ExecStart=/var/www/vhosts/splytin.com/python.splytin.com/venv/bin/gunicorn --workers 3 --bind 0.0.0.0:8000 index:app
 
 [Install]
 WantedBy=multi-user.target
