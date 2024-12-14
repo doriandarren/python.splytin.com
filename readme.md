@@ -16,6 +16,8 @@ app.run(debug=True, host='0.0.0.0', port=5003)
 - source .venv/bin/activate     // MacOs
 - .\.venv\Scripts\activate      // Windows
 - pip install --upgrade pip
+- deactivate                    // Deactivate
+
 
 
 // Instala Flask:
