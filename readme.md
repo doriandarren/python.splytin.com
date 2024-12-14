@@ -8,7 +8,6 @@ app.run(debug=True, host='0.0.0.0', port=5003)
 ### Install Local
 
 
-
 ```sh
 
 // Entorno virtual (https://flask.palletsprojects.com/en/3.0.x/installation/)
