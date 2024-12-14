@@ -3,7 +3,7 @@ from flask import Flask, jsonify
 import logging
 from logging.handlers import RotatingFileHandler
 
-from src.routes import blueprints
+#from src.routes import blueprints
 
 
 def create_app():
