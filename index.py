@@ -3,6 +3,8 @@ from flask import Flask, jsonify
 import logging
 from logging.handlers import RotatingFileHandler
 
+from src.routes import blueprints
+
 
 def create_app():
 
@@ -28,17 +30,21 @@ def create_app():
 
 
 
-    # Routes
-    @app.route('/')
-    @app.route('/<name>')
-    def index(name = ''):
-        return f'<h1>Hola mundo desde un café {name}</h1>'
+    # Registrar todos los blueprints de forma dinámica
+    for bp in blueprints:
+        app.register_blueprint(bp)
 
+    # # Routes
+    # @app.route('/')
+    # @app.route('/<name>')
+    # def index(name=''):
+    #     return f'<h1>Hola mundo desde un café {name}</h1>'
+    #
+    # @app.route('/error')
+    # def error():
+    #     v = 1 / 0
+    #     return jsonify({"mensaje": "Esto nuna se ejecutará"})
 
-    @app.route('/error')
-    def error():
-        v = 1 / 0
-        return jsonify({"mensaje": "Esto nuna se ejecutará"})
 
 
 
