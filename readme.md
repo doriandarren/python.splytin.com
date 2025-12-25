@@ -61,3 +61,23 @@ python3 manage.py runserver 8001
 
 
 ```
+
+
+
+
+
+## Django
+
+```sh
+pip3 install django
+pip3 install --upgrade pip
+django-admin startproject splytin .
+
+
+python manage.py migrate
+python3 manage.py runserver
+
+python3 manage.py startapp nombre_app           # Crear app
+```
+
+
