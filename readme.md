@@ -62,7 +62,11 @@ python3 manage.py runserver 8001
 
 ```
 
-## Django API
+## -----------------------------
+##        Django API
+## -----------------------------
+
+## Settings:
 
 ```sh
 
@@ -212,6 +216,16 @@ urlpatterns = [
 ]
 ...
 
+## También en el mismo archivo agregar (AL FINAL): 
+
+...
+import datetime
+...
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=120), ## Controla el tiempo de expiración del token
+}
+...
+
 
 
 # 13.- Instalando CORS pagina pypi.org -> https://pypi.org/project/django-cors-headers/
@@ -251,15 +265,97 @@ CORS_ALLOW_CREDENTIALS = True
 ...
 
 
-## También en el mismo archivo agregar (AL FINAL - DESPUÉS DE CORS): 
 
+## RUN SERVER:
+python3 manage.py runserver
+
+```
+
+
+
+## Ejemplo para CREAR una app::
+
+```sh
+
+## Crear APP Categories:
+python3 manage.py startapp categories           # Crear app
+python3 -m pip install pillow
+
+## modifica el modelo: categories/models.py
+class Category(models.Model):
+    title = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='categories', null=True, blank=True)
+
+    def __str__(self):
+        return self.title
+
+## Agregar en settings.py:
 ...
-import datetime
+import os
 ...
-SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=120), ## Controla el tiempo de expiración del token
-}
+INSTALLED_APPS = [
+    ...
+    'categories',
+]
 ...
+MEDIA_URL = '/uploads/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+...
+
+## Crear migraciones:
+python3 manage.py makemigrations
+python3 manage.py migrate
+
+
+## Agregarlo al Panel de administracion (admin):
+## Editar categories/admin.py:
+...
+from django.contrib import admin
+from categories.models import Category
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    pass
+...
+
+
+## Crear ModelViewSet
+
+## Crear Carpeta API categories/api:
+
+- __init__.py
+- views.py
+- serializers.py
+- router.py
+
+## views.py:
+...
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from categories.api.serializers import CategorySerializer
+from categories.models import Category
+
+class CategoryViewSet(ModelViewSet):
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    serializer_class = CategorySerializer
+    queryset = Category.objects.all()
+...
+
+
+## serializers.py:
+...
+from rest_framework.serializers import ModelSerializer
+from categories.models import Category
+
+class CategorySerializer(ModelSerializer):
+    class Meta:
+        model = Category
+        fields = ['id', 'title', 'image']
+...
+
+
+
+
 
 
 
@@ -269,5 +365,5 @@ SIMPLE_JWT = {
 
 
 python3 manage.py runserver
-python3 manage.py startapp nombre_app           # Crear app
+
 ```
