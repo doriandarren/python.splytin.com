@@ -22,7 +22,8 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 # API USER
-from users.api.router import user_router
+from users.api.router import router_user
+from categories.api.router import router_categories
 
 
 schema_view = get_schema_view(
@@ -52,5 +53,8 @@ urlpatterns = [
     
     # USERS
     path('api/', include('users.api.router')),
-    path('api/', include(user_router.urls)),
+    path('api/', include(router_user.urls)),
+
+    # CATEGORIES
+    path('api/', include(router_categories.urls))
 ]

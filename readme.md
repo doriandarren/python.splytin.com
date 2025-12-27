@@ -277,11 +277,11 @@ python3 manage.py runserver
 
 ```sh
 
-## Crear APP Categories:
+## 1.- Crear APP Categories:
 python3 manage.py startapp categories           # Crear app
-python3 -m pip install pillow
+python3 -m pip install pillow                   # Solo para subir file al servidor
 
-## modifica el modelo: categories/models.py
+## 2.- modifica el modelo: categories/models.py
 class Category(models.Model):
     title = models.CharField(max_length=100)
     image = models.ImageField(upload_to='categories', null=True, blank=True)
@@ -307,7 +307,7 @@ python3 manage.py makemigrations
 python3 manage.py migrate
 
 
-## Agregarlo al Panel de administracion (admin):
+## 3.- Agregarlo al Panel de administracion (admin):
 ## Editar categories/admin.py:
 ...
 from django.contrib import admin
@@ -319,9 +319,9 @@ class CategoryAdmin(admin.ModelAdmin):
 ...
 
 
-## Crear ModelViewSet
+## 4.- Crear ModelViewSet y CRUD:
 
-## Crear Carpeta API categories/api:
+## Crear Carpeta API en la app. Ejemplo: categories/api:
 
 - __init__.py
 - views.py
@@ -335,7 +335,7 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from categories.api.serializers import CategorySerializer
 from categories.models import Category
 
-class CategoryViewSet(ModelViewSet):
+class CategoryApiViewSet(ModelViewSet):
     permission_classes = [IsAuthenticatedOrReadOnly]
     serializer_class = CategorySerializer
     queryset = Category.objects.all()
@@ -354,7 +354,27 @@ class CategorySerializer(ModelSerializer):
 ...
 
 
+## router.py:
+...
+from rest_framework.routers import DefaultRouter
+from categories.api.views import CategoryApiViewSet
 
+router_categories = DefaultRouter()
+
+router_categories.register(prefix='categories', basename='categories', viewset=CategoryApiViewSet)
+...
+
+## Luego registrar en la route principal urls.py:
+
+...
+from categories.api.router import router_categories
+...
+urlpatterns = [
+    ...
+    # CATEGORIES
+    path('api/', include(router_categories.urls))
+]
+...
 
 
 
