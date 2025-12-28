@@ -63,24 +63,78 @@ python3 manage.py runserver 8001
 ```
 
 ## -----------------------------
-##        Django API
+
+## Django API
+
 ## -----------------------------
 
-## Settings:
+## Install:
 
 ```sh
 
-# 1.-
+## 1.- crear archivo en la raíz del proyecto: docker-compose.yml:
+
+...
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: myapp_postgres
+    environment:
+      POSTGRES_DB: myapp_db
+      POSTGRES_USER: myapp_user
+      POSTGRES_PASSWORD: myapp_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
+...
+
+
+## levantar con Docker:
+docker compose up -d
+
+
+## Opcional:
+docker compose down -v      ## Borra la BD
+docker compose up -d        ## Se levanta de nuevo
+
+## Instala driver Postgres
+pip3 install "psycopg[binary]"
+
+
+## en el archivo "settings.py":
+...
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "myapp_db",
+        "USER": "myapp_user",
+        "PASSWORD": "myapp_pass",
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
+    }
+}
+...
+
+
+python3 manage.py migrate
+
+
+
+# 2.- Instalar Django
 pip3 install django
 pip3 install --upgrade pip
 django-admin startproject splytin .
 python manage.py migrate
 
-# 2.- Instalar django rest
+# 3.- Instalar django rest
 pip3 install djangorestframework          # API  -> Guia https://www.django-rest-framework.org/
 
 
-# 3.- Añadir splytin/settings.py:
+# 4.- Añadir splytin/settings.py:
 ...
 INSTALLED_APPS = [
     ...
@@ -88,10 +142,10 @@ INSTALLED_APPS = [
 ]
 ...
 
-# 4.- Instalar Docs -> https://drf-yasg.readthedocs.io/en/stable/readme.html#installation
+# 5.- Instalar Docs -> https://drf-yasg.readthedocs.io/en/stable/readme.html#installation
 pip3 install -U drf-yasg
 
-# 5.-  agregar en splytin/settings.py:
+# 6.-  agregar en splytin/settings.py:
 ...
 INSTALLED_APPS = [
    ...
@@ -102,7 +156,7 @@ INSTALLED_APPS = [
 ...
 
 
-# 6.- agregar en splytin/urls.py:
+# 7.- agregar en splytin/urls.py:
 
 ...
 from django.urls import re_path
@@ -133,14 +187,14 @@ urlpatterns = [
 ]
 ...
 
-# 7.-  Veirificar si hay migraciones:
+# 8.-  Veirificar si hay migraciones:
 python3 manage.py makemigrations
 
 
-# 8.-  Luego ELIMINAR el sql
+# 9.-  Luego ELIMINAR el sql
 -->>> Eliminar el SQLlite
 
-# 9.- Crear app "users":
+# 10.- Crear app "users":
 python3 manage.py startapp users
 
 - También Agregar en "INSTALLED_APPS" y al final del archivo settings.py:
@@ -157,15 +211,14 @@ AUTH_USER_MODEL = 'users.User'
 ...
 
 
-# 10.- Ir a users -> models.py
-## Copiar el archivo
+# 11.- Ir a users -> models.py y copiar el archivo el "models.py"
 ## Luego generar las migraciones:
 
 python3 manage.py makemigrations    ## Crea las migraciones y la DB de nuevo
 python3 manage.py migrate           ## Se ejecuta las migraciones
 
 
-# 11.- Crear el superuser:
+# 12.- Crear el superuser:
 python3 manage.py createsuperuser
 
 python3 manage.py makemigrations
@@ -175,7 +228,7 @@ python3 manage.py migrate
 ## Copiar el archivo
 
 
-# 11.- crear carpeta "users/api" con los archivos:
+# 13.- crear carpeta "users/api" con los archivos:
 
 - views.py
 - serializers.py
@@ -185,14 +238,14 @@ python3 manage.py migrate
 
 ...
 # USERS
-path('api/', include('users.api.router')),
+path('api/v1/', include('users.api.router')),
 ...
 
 
 
 
 
-## 12.- Instalar JWT -> https://django-rest-framework-simplejwt.readthedocs.io/en/latest/
+## 14.- Instalar JWT -> https://django-rest-framework-simplejwt.readthedocs.io/en/latest/
 
 pip3 install djangorestframework-simplejwt
 
@@ -211,12 +264,12 @@ REST_FRAMEWORK = {
 from rest_framework_simplejwt.views import TokenObtainPairView
 ...
 urlpatterns = [
-    path('api/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('auth/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     ...
 ]
 ...
 
-## También en el mismo archivo agregar (AL FINAL): 
+## También en el mismo archivo agregar (AL FINAL):
 
 ...
 import datetime
@@ -228,9 +281,9 @@ SIMPLE_JWT = {
 
 
 
-# 13.- Instalando CORS pagina pypi.org -> https://pypi.org/project/django-cors-headers/
+# 15.- Instalando CORS pagina pypi.org -> https://pypi.org/project/django-cors-headers/
 
-pip3 install django-cors-headers 
+pip3 install django-cors-headers
 
 ## Agregar al archivo: settings.py (buscar linea):
 ...
@@ -266,14 +319,13 @@ CORS_ALLOW_CREDENTIALS = True
 
 
 
-## RUN SERVER:
+
+## 16.- RUN SERVER:
 python3 manage.py runserver
 
 ```
 
-
-
-## Ejemplo para CREAR una app::
+## Ejemplo para CREAR una app:
 
 ```sh
 
@@ -377,12 +429,33 @@ urlpatterns = [
 ...
 
 
+## 5.- Crear Seed. Crear archivo: categories/management/commands/seed_categories.py. Se ejecuta con: "python3 manage.py seed_categories"
+...
+from django.core.management.base import BaseCommand
+from categories.models import Category
+
+class Command(BaseCommand):
+    help = "Seed initial categories"
+
+    def handle(self, *args, **options):
+        categories = [
+            "Technology",
+            "AI",
+            "Backend",
+            "Frontend",
+            "DevOps",
+        ]
+
+        for title in categories:
+            Category.objects.get_or_create(title=title)
+
+        self.stdout.write(self.style.SUCCESS("Categories seeded successfully"))
+...
 
 
 
 
-
-
+## .- Run server
 
 python3 manage.py runserver
 

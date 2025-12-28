@@ -24,6 +24,7 @@ from drf_yasg import openapi
 # API USER
 from users.api.router import router_user
 from categories.api.router import router_categories
+from ai.api.router import router_ollama
 
 
 schema_view = get_schema_view(
@@ -52,9 +53,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     
     # USERS
-    path('api/', include('users.api.router')),
-    path('api/', include(router_user.urls)),
+    path('api/v1/', include('users.api.router')),
+    path('api/v1/', include(router_user.urls)),
 
     # CATEGORIES
-    path('api/', include(router_categories.urls))
+    path('api/v1/', include(router_categories.urls)),
+    
+    # Ollama
+    path('api/v1/', include(router_ollama.urls))
 ]
