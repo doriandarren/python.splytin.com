@@ -124,9 +124,10 @@ python3 manage.py migrate
 
 
 
-# 2.- Instalar Django
-pip3 install django
+# 2.- Instalar otras librerias y Django:
 pip3 install --upgrade pip
+pip3 install requests                   ## Libreria
+pip3 install django
 django-admin startproject splytin .
 python manage.py migrate
 
@@ -319,8 +320,13 @@ CORS_ALLOW_CREDENTIALS = True
 
 
 
+## 16.- Crear carpeta core/http y el archivo api_request.py
 
-## 16.- RUN SERVER:
+## 17.- crear dev: 
+
+
+
+## .- RUN SERVER:
 python3 manage.py runserver
 
 ```

@@ -6,6 +6,6 @@ from ai.models import Ollama
 
 class OllamaApiViewSet(ModelViewSet):
     permission_classes = [IsAuthenticatedOrReadOnly]
-    serializer_class = OllamaSerializer()
+    serializer_class = OllamaSerializer
     queryset = Ollama.objects.all()
 

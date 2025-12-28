@@ -1,0 +1,61 @@
+ARR_PROMPTS = [
+  ## --- 1–10 (originales) ---
+  'a cozy cyberpunk cafe at night, neon lights, rain, ultra detailed',
+  'a futuristic tokyo alley with neon signs, reflections, cinematic, ultra detailed',
+  'a magical library with floating books, warm candlelight, mystical ambience, ultra detailed',
+  'a medieval castle on a cliff at sunset, epic fantasy, ultra detailed',
+  'a cyberpunk samurai standing under neon rain, glowing katana, ultra detailed',
+  'an ancient underwater temple illuminated by sunbeams, colorful fish, ultra detailed',
+  'a nordic village covered in snow, aurora borealis, warm orange lights, ultra detailed',
+  'a steampunk airship dock above the clouds, brass machinery, cinematic, ultra detailed',
+  'a mystic forest shrine with glowing runes and fog, enchanted atmosphere, ultra detailed',
+  'a sci-fi robot workshop with glowing screens and blue lights, highly detailed',
+
+  ## --- 11–20 ---
+  'a futuristic city skyline at dawn, neon reflections, misty atmosphere, ultra cinematic',
+  'a serene japanese garden with cherry blossoms falling, soft lighting, ultra detailed',
+  'a dragon flying over a burning city, dramatic fire and smoke, epic fantasy, ultra detailed',
+  'an astronaut exploring an alien jungle full of glowing plants, ultra detailed, sci-fi',
+  'a peaceful beach at sunset with crystal clear ocean waves and golden light, ultra detailed',
+  'a dark gothic cathedral with stained-glass windows glowing, moody atmosphere, ultra detailed',
+  'a knight riding a horse through a foggy forest, cinematic lighting, epic fantasy',
+  'a cozy cabin in a snowy forest with warm lights, smoke rising from chimney, ultra detailed',
+  'a giant ancient golem made of mossy stone walking through a forest, cinematic, fantasy',
+  'a futuristic cybernetic marketplace with robots and holograms, neon colors, ultra detailed',
+
+  ## --- 21–30 ---
+  'a pirate ship battling a kraken in stormy seas, dramatic waves, ultra detailed',
+  'an enchanted waterfall glowing with magical light, fantasy environment, ultra detailed',
+  'a retro 80s synthwave car driving through neon desert highway, vaporwave style',
+  'a royal throne room covered in gold and red velvet, ornate details, ultra detailed',
+  'a peaceful bamboo forest with soft morning light, fog and depth, ultra detailed',
+  'a spaceship landing on a desert planet under twin suns, sci-fi cinematic',
+  'a cyberpunk hacker room with monitors, cables and neon lighting, extremely detailed',
+  'a mystical phoenix rising from fire, golden sparks, epic fantasy, ultra detailed',
+  'a glowing underwater city protected by magical barriers, vibrant colors, ultra detailed',
+  'a high-tech mech warrior standing in a destroyed battlefield, sci-fi, ultra detailed',
+
+  ## --- 31–40 ---
+  'a haunted victorian mansion at night with fog and lantern light, horror atmosphere',
+  'a peaceful medieval marketplace at sunrise, villagers, warm tones, ultra detailed',
+  'a futuristic motorcycle chase scene through neon-lit streets, cinematic motion',
+  'a crystal cavern illuminated by magical blue light, fantasy setting, ultra detailed',
+  'a witch brewing potions in a cozy alchemy room filled with glowing liquids, ultra detailed',
+  'a cybernetic dragon flying above skyscrapers, neon reflections, ultra detailed',
+  'a samurai facing a giant demon under a full moon, japanese folklore, ultra detailed',
+  'a fairy village hidden inside giant mushrooms, glowing lights, fantasy, ultra detailed',
+  'a robot dog exploring an abandoned lab, dramatic lighting, sci-fi, ultra detailed',
+  'a floating island in the sky with waterfalls and ancient temples, epic fantasy',
+
+  ## --- 41–50 ---
+  'a neon-lit subway station in a cyberpunk world, reflections on wet floor, ultra detailed',
+  'a magical portal opening in the middle of a forest, glowing energy, fantasy, ultra detailed',
+  'a colossal space station orbiting earth, dramatic lighting, sci-fi, ultra detailed',
+  'a serene castle garden with fountains and marble statues, renaissance aesthetic, ultra detailed',
+  'a giant whale flying through the sky above a quiet village, whimsical fantasy',
+  'a futuristic crystal palace with holographic architecture, glowing interiors, ultra detailed',
+  'a lone ronin walking through a rainy japanese street with lanterns, atmospheric, ultra detailed',
+  'a cute dragon sleeping on a pile of gold coins, soft lighting, fantasy, ultra detailed',
+  'a stormy mountain peak with lightning striking an ancient monolith, epic cinematic',
+  'a biomechanical forest blending organic trees and robotic machinery, sci-fantasy, ultra detailed',
+]

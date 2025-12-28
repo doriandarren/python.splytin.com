@@ -22,6 +22,7 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 # API USER
+from dev.api.router import router_dev
 from users.api.router import router_user
 from categories.api.router import router_categories
 from ai.api.router import router_ollama
@@ -49,6 +50,10 @@ urlpatterns = [
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     
     # API
+    
+    # Dev
+    path('api/v1/', include(router_dev.urls)),
+    
     # ADMIN
     path('admin/', admin.site.urls),
     
