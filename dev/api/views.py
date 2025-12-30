@@ -43,7 +43,7 @@ class DevApiViewSet(ModelViewSet):
         endpoint = ApiRequest(base_url="http://192.168.1.104:11434/")
         response_text = endpoint.post("/v1/chat/completions", payload_text)
         
-        ollama = Ollama.objects.create(
+        ollama_text = Ollama.objects.create(
             model=self.MODEL,
             request_prompt=prompt,
             request_payload=payload_text,
@@ -52,7 +52,7 @@ class DevApiViewSet(ModelViewSet):
         
         ## Ollama Image
         payload_image = {
-            "prompt": prompt,
+            "request_prompt": prompt,
             "steps": 20,
             "width": 512,
             "height": 512,
@@ -66,12 +66,14 @@ class DevApiViewSet(ModelViewSet):
         endpoint = ApiRequest(base_url="http://192.168.1.104:7860/sdapi/")
         response_image = endpoint.post("v1/txt2img", payload_image)
         
+        ##print(response_image)
+        ## TODO implemetar el guardado de la imagen
         
         
         
         return Response({
             "status": "success",
-            "data": ollama.id,
+            "data": ollama_text.id,
         })
         
     

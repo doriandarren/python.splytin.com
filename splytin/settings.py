@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'users',
     'categories',
     'ai',
+    'ollama_texts',
+    'ollama_images',
 ]
 
 MIDDLEWARE = [

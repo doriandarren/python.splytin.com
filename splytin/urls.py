@@ -26,6 +26,8 @@ from dev.api.router import router_dev
 from users.api.router import router_user
 from categories.api.router import router_categories
 from ai.api.router import router_ollama
+from ollama_images.api.router import router_ollama_image
+from ollama_texts.api.router import router_ollama_text
 
 
 schema_view = get_schema_view(
@@ -65,5 +67,7 @@ urlpatterns = [
     path('api/v1/', include(router_categories.urls)),
     
     # Ollama
-    path('api/v1/', include(router_ollama.urls))
+    path('api/v1/', include(router_ollama.urls)),
+    path('api/v1/', include(router_ollama_image.urls)),
+    path('api/v1/', include(router_ollama_text.urls)),
 ]
