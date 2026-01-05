@@ -12,10 +12,6 @@
 
 
 
-
-
-
-
 📄 Table: ollama_texts - OllamaText - OllamaTexts
 Columns: model request_prompt request_payload response_payload
 

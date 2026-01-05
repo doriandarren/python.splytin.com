@@ -13,10 +13,14 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 import datetime
 from pathlib import Path
+from dotenv import load_dotenv
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
+load_dotenv(BASE_DIR / ".env")  # ✅ carga el .env una sola vez
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -42,6 +46,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_yasg',
     'corsheaders',
+    'django_crontab',
     'dev',
     'users',
     'categories',
@@ -169,4 +174,14 @@ SIMPLE_JWT = {
 AUTH_USER_MODEL = 'users.User'
 
 
+## ENV
+APP_NAME = os.getenv("APP_NAME", "splytin")
+APP_ENV = os.getenv("APP_ENV", "local")
+MESSAGE_CHANNEL_URL = os.getenv("MESSAGE_CHANNEL_URL")
 
+
+
+## Cron
+CRONJOBS = [
+    ("*/1 * * * *", "core.cron.cron.hello_cron"),  # cada minuto (para probar)
+]

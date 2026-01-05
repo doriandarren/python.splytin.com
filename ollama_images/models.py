@@ -9,13 +9,16 @@ class OllamaImage(models.Model):
     request_payload = models.JSONField()
     response_payload = models.JSONField(blank=True, null=True)
     nonce = models.CharField(max_length=100)
-    sampler_index = models.IntegerField()
+    sampler_index = models.CharField(max_length=200)
     cfg_scale = models.FloatField()
     seed = models.IntegerField()
     height = models.IntegerField()
     width = models.IntegerField()
     steps = models.IntegerField()
-    image_base = models.ImageField(upload_to='images')
+    image_bytes = models.BinaryField(null=True, blank=True)
+    image_mime = models.CharField(max_length=50, default="image/png")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     
     
     class Meta:

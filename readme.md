@@ -325,6 +325,82 @@ CORS_ALLOW_CREDENTIALS = True
 ## 17.- crear dev: 
 
 
+## 18: Instalar Cron:
+pip install django-crontab
+
+## Ejecuta:
+python3 manage.py crontab add
+
+## Ver los jobs instalados:
+python3 manage.py crontab show
+
+## Quitar todos los jobs de django-crontab:
+python3 manage.py crontab remove
+
+
+## crear el archivo: core/cron/cron.py:
+
+...
+# core/cron.py
+from django.utils import timezone
+
+def hello_cron():
+    print(f"[CRON] hello_cron ejecutado: {timezone.now()}")
+...
+
+## Luego en settings.py:
+
+...
+CRONJOBS = [
+    ("*/1 * * * *", "core.cron.hello_cron"),  # cada minuto (para probar)
+]
+...
+
+...
+INSTALLED_APPS = [
+    ...
+    "django_crontab",
+]
+...
+
+
+## 20.- Instalar dotenv:
+pip install python-dotenv
+
+## Archivo settings.py:
+...
+from dotenv import load_dotenv
+
+
+load_dotenv(BASE_DIR / ".env")  # ✅ carga el .env una sola vez
+
+
+## ENV
+APP_NAME = os.getenv("APP_NAME", "splytin")
+APP_ENV = os.getenv("APP_ENV", "local")
+MESSAGE_CHANNEL_URL = os.getenv("MESSAGE_CHANNEL_URL")
+...
+
+
+
+
+
+
+## 20.- Crear MessageChannel core/messages/message_channel.py
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## .- RUN SERVER:
 python3 manage.py runserver

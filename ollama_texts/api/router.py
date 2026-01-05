@@ -8,10 +8,10 @@ from ollama_texts.api.views import OllamaTextApiViewSet
 
 
 # example
-router_text = DefaultRouter()
+router_ollama_text = DefaultRouter()
 
 # examples
-router_text.register(
+router_ollama_text.register(
     prefix='ollama_texts',
     basename='ollama_texts',
     viewset=OllamaTextApiViewSet
