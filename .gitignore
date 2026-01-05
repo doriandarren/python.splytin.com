@@ -86,3 +86,6 @@ myenv/
 
 logs
 /logs
+
+
+db.sqlite3
