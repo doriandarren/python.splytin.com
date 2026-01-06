@@ -400,7 +400,6 @@ INSTALLED_APPS = [
 ]
 ...
 
-
 ## crear "home/templates/home/index.html"
 
 ## agregar código en el index.html
@@ -428,10 +427,11 @@ urlpatterns = [
 
 
 
-
-
-
-
+## 22 .- comprobar dentro del settings: 
+...
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
+...
 
 
 
@@ -587,27 +587,47 @@ tail -n 200 /var/www/vhosts/system/python.splytin.com/logs/error_log
 
 
 
-## Dentro del Plesk:
+## 1.- Dentro del Plesk:
 
-Additional Apache directives (HTTP):
+## Additional Apache directives (HTTP):
+...
 PassengerEnabled on
 PassengerAppRoot /var/www/vhosts/splytin.com/python.splytin.com
 PassengerAppType wsgi
 PassengerStartupFile passenger_wsgi.py
 PassengerPython /var/www/vhosts/splytin.com/python.splytin.com/.venv/bin/python
+...
 
-
-Additional Apache directives (HTTPS):
+## Additional Apache directives (HTTPS):
+...
 PassengerEnabled on
 PassengerAppRoot /var/www/vhosts/splytin.com/python.splytin.com
 PassengerAppType wsgi
 PassengerStartupFile passenger_wsgi.py
 PassengerPython /var/www/vhosts/splytin.com/python.splytin.com/.venv/bin/python
-
+...
 
 
 # Restart services:
 service nginx restart
 service apache2 restart
+
+
+
+
+## 2.- Cargar archivos static: en PRODUCTION
+
+python manage.py collectstatic --noinput
+
+## Y en el plesk Additional nginx directives:
+...
+location /static/ {
+	alias /var/www/vhosts/splytin.com/python.splytin.com/staticfiles/;
+	access_log off;
+	expires 30d;
+}
+...
+
+
 
 ```
