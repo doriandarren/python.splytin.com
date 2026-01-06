@@ -129,7 +129,7 @@ pip3 install --upgrade pip
 pip3 install requests                   ## Libreria
 pip3 install django
 django-admin startproject splytin .
-python manage.py migrate
+python3 manage.py migrate
 
 # 3.- Instalar django rest
 pip3 install djangorestframework          # API  -> Guia https://www.django-rest-framework.org/
@@ -389,9 +389,32 @@ MESSAGE_CHANNEL_URL = os.getenv("MESSAGE_CHANNEL_URL")
 ## 20.- Crear MessageChannel core/messages/message_channel.py
 
 
+## 21.- Crear startapp "home"
+
+python3 manage.py startapp home
+
+...
+INSTALLED_APPS = [
+    # ...
+    "home",
+]
+...
 
 
+## crear "home/templates/home/index.html"
 
+## agregar código en el index.html
+
+## crear archivo: home/urls.py
+
+...
+from django.urls import path
+from .views import index
+
+urlpatterns = [
+    path("", index, name="home"),
+]
+...
 
 
 

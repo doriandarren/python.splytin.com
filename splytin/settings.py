@@ -29,7 +29,7 @@ load_dotenv(BASE_DIR / ".env")  # ✅ carga el .env una sola vez
 SECRET_KEY = 'django-insecure-26033d(t2l1w(th@k7h&(3@6)4*w+d=2_dfrkv&-m6%1or*l&#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.getenv("DEBUG",False)
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'python.splytin.com']
 
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_crontab',
     'dev',
+    'home',
     'users',
     'categories',
     'ai',

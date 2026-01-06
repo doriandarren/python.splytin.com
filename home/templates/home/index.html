@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Splytin API</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="min-h-screen bg-slate-950 text-slate-100">
+    <header class="border-b border-slate-800 bg-slate-950/60 backdrop-blur">
+      <div class="mx-auto max-w-5xl px-4 py-6 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="h-10 w-10 rounded-xl bg-slate-800 flex items-center justify-center font-bold">
+            S
+          </div>
+          <div>
+            <h1 class="text-lg font-semibold leading-tight">Splytin API</h1>
+            <p class="text-sm text-slate-400">Backend service status & endpoints</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <a href="/admin/" class="px-3 py-2 text-sm rounded-lg bg-slate-800 hover:bg-slate-700 transition">
+            Admin
+          </a>
+          <a href="/api/" class="px-3 py-2 text-sm rounded-lg bg-indigo-600 hover:bg-indigo-500 transition">
+            API
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-5xl px-4 py-10">
+      <div class="grid gap-6 md:grid-cols-3">
+        <div class="md:col-span-2 rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+          <h2 class="text-xl font-semibold">✅ Service online</h2>
+          <p class="mt-2 text-slate-300">
+            Si estás viendo esto, Django está sirviendo correctamente.
+          </p>
+
+          <div class="mt-6 grid gap-3 sm:grid-cols-2">
+            <div class="rounded-xl border border-slate-800 bg-slate-950/40 p-4">
+              <p class="text-xs uppercase tracking-wider text-slate-400">Environment</p>
+              <p class="mt-1 font-medium">Production / Plesk</p>
+            </div>
+            <div class="rounded-xl border border-slate-800 bg-slate-950/40 p-4">
+              <p class="text-xs uppercase tracking-wider text-slate-400">Docs</p>
+              <p class="mt-1 font-medium">/api/ · /admin/</p>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <p class="text-sm text-slate-400 mb-2">Quick endpoints</p>
+            <div class="space-y-2">
+              <div class="flex items-center justify-between rounded-xl border border-slate-800 bg-slate-950/40 px-4 py-3">
+                <code class="text-sm text-slate-200">GET /api/v1/dev/</code>
+                <span class="text-xs rounded-full bg-emerald-500/10 text-emerald-300 px-2 py-1 border border-emerald-500/20">OK</span>
+              </div>
+              <div class="flex items-center justify-between rounded-xl border border-slate-800 bg-slate-950/40 px-4 py-3">
+                <code class="text-sm text-slate-200">GET /api/v1/...</code>
+                <span class="text-xs rounded-full bg-slate-500/10 text-slate-300 px-2 py-1 border border-slate-500/20">—</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-slate-800 bg-slate-900/40 p-6">
+          <h3 class="font-semibold">Health</h3>
+
+          <div class="mt-4 space-y-3">
+            <div class="rounded-xl border border-slate-800 bg-slate-950/40 p-4">
+              <p class="text-xs uppercase tracking-wider text-slate-400">Status</p>
+              <p class="mt-1 font-medium">Running</p>
+            </div>
+
+            <div class="rounded-xl border border-slate-800 bg-slate-950/40 p-4">
+              <p class="text-xs uppercase tracking-wider text-slate-400">Next</p>
+              <p class="mt-1 text-sm text-slate-300">
+                Añade Swagger/OpenAPI y un endpoint /health/.
+              </p>
+            </div>
+
+            <a href="/admin/" class="block text-center mt-2 px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 transition">
+              Open Admin
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <footer class="mt-10 text-xs text-slate-500">
+        Splytin · Django + Plesk
+      </footer>
+    </main>
+  </body>
+</html>
