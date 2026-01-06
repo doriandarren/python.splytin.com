@@ -322,7 +322,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 ## 16.- Crear carpeta core/http y el archivo api_request.py
 
-## 17.- crear dev: 
+## 17.- crear dev:
 
 
 ## 18: Instalar Cron:
@@ -415,6 +415,19 @@ urlpatterns = [
     path("", index, name="home"),
 ]
 ...
+
+## En urls.py:
+...
+urlpatterns = [
+    #Home
+    path('', include('home.urls')),
+    ...
+]
+...
+
+
+
+
 
 
 
@@ -563,5 +576,38 @@ class Command(BaseCommand):
 ## .- Run server
 
 python3 manage.py runserver
+
+```
+
+## Plesk:
+
+```sh
+
+tail -n 200 /var/www/vhosts/system/python.splytin.com/logs/error_log
+
+
+
+## Dentro del Plesk:
+
+Additional Apache directives (HTTP):
+PassengerEnabled on
+PassengerAppRoot /var/www/vhosts/splytin.com/python.splytin.com
+PassengerAppType wsgi
+PassengerStartupFile passenger_wsgi.py
+PassengerPython /var/www/vhosts/splytin.com/python.splytin.com/.venv/bin/python
+
+
+Additional Apache directives (HTTPS):
+PassengerEnabled on
+PassengerAppRoot /var/www/vhosts/splytin.com/python.splytin.com
+PassengerAppType wsgi
+PassengerStartupFile passenger_wsgi.py
+PassengerPython /var/www/vhosts/splytin.com/python.splytin.com/.venv/bin/python
+
+
+
+# Restart services:
+service nginx restart
+service apache2 restart
 
 ```

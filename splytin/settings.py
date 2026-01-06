@@ -28,8 +28,14 @@ load_dotenv(BASE_DIR / ".env")  # ✅ carga el .env una sola vez
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-26033d(t2l1w(th@k7h&(3@6)4*w+d=2_dfrkv&-m6%1or*l&#'
 
+
+def env_bool(name: str, default: bool = False) -> bool:
+    return os.getenv(name, str(int(default))).strip().lower() in (
+        "1", "true", "yes", "on"
+    )
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG",False)
+DEBUG = env_bool("DEBUG", default=False)
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'python.splytin.com']
 
@@ -151,7 +157,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_URL = '/uploads/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 
