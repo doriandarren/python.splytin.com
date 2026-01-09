@@ -128,14 +128,13 @@ python3 manage.py migrate
 pip3 install --upgrade pip
 pip3 install requests                   ## Libreria
 pip3 install django
-django-admin startproject splytin .
+django-admin startproject splytin .     ## Con el punto (.) final para que no se cree duplicado
 python3 manage.py migrate
 
 # 3.- Instalar django rest
 pip3 install djangorestframework          # API  -> Guia https://www.django-rest-framework.org/
 
-
-# 4.- Añadir splytin/settings.py:
+# Añadir splytin/settings.py:
 ...
 INSTALLED_APPS = [
     ...
@@ -143,10 +142,13 @@ INSTALLED_APPS = [
 ]
 ...
 
-# 5.- Instalar Docs -> https://drf-yasg.readthedocs.io/en/stable/readme.html#installation
+
+
+
+# 4.- Instalar Docs -> https://drf-yasg.readthedocs.io/en/stable/readme.html#installation
 pip3 install -U drf-yasg
 
-# 6.-  agregar en splytin/settings.py:
+# 5.-  agregar en splytin/settings.py:
 ...
 INSTALLED_APPS = [
    ...
@@ -157,7 +159,7 @@ INSTALLED_APPS = [
 ...
 
 
-# 7.- agregar en splytin/urls.py:
+# 6.- agregar en splytin/urls.py:
 
 ...
 from django.urls import re_path
@@ -188,14 +190,14 @@ urlpatterns = [
 ]
 ...
 
-# 8.-  Veirificar si hay migraciones:
+# 7.-  Veirificar si hay migraciones:
 python3 manage.py makemigrations
 
 
-# 9.-  Luego ELIMINAR el sql
+# 8.-  Luego ELIMINAR el sql
 -->>> Eliminar el SQLlite
 
-# 10.- Crear app "users":
+# 9.- Crear app "users":
 python3 manage.py startapp users
 
 - También Agregar en "INSTALLED_APPS" y al final del archivo settings.py:
@@ -212,14 +214,14 @@ AUTH_USER_MODEL = 'users.User'
 ...
 
 
-# 11.- Ir a users -> models.py y copiar el archivo el "models.py"
+# 10.- Ir a users -> models.py y copiar el archivo el "models.py"
 ## Luego generar las migraciones:
 
 python3 manage.py makemigrations    ## Crea las migraciones y la DB de nuevo
 python3 manage.py migrate           ## Se ejecuta las migraciones
 
 
-# 12.- Crear el superuser:
+# 11.- Crear el superuser:
 python3 manage.py createsuperuser
 
 python3 manage.py makemigrations
@@ -229,7 +231,7 @@ python3 manage.py migrate
 ## Copiar el archivo
 
 
-# 13.- crear carpeta "users/api" con los archivos:
+# 12.- crear carpeta "users/api" con los archivos:
 
 - views.py
 - serializers.py
@@ -246,7 +248,7 @@ path('api/v1/', include('users.api.router')),
 
 
 
-## 14.- Instalar JWT -> https://django-rest-framework-simplejwt.readthedocs.io/en/latest/
+## 13.- Instalar JWT -> https://django-rest-framework-simplejwt.readthedocs.io/en/latest/
 
 pip3 install djangorestframework-simplejwt
 
@@ -282,7 +284,7 @@ SIMPLE_JWT = {
 
 
 
-# 15.- Instalando CORS pagina pypi.org -> https://pypi.org/project/django-cors-headers/
+# 14.- Instalando CORS pagina pypi.org -> https://pypi.org/project/django-cors-headers/
 
 pip3 install django-cors-headers
 
@@ -320,22 +322,18 @@ CORS_ALLOW_CREDENTIALS = True
 
 
 
-## 16.- Crear carpeta core/http y el archivo api_request.py
+## 15.- Crear carpeta core/http y el archivo api_request.py
 
-## 17.- crear dev:
+## 16.- crear dev:
 
 
-## 18: Instalar Cron:
+## 17: Instalar Cron:
 pip install django-crontab
 
 ## Ejecuta:
-python3 manage.py crontab add
-
-## Ver los jobs instalados:
-python3 manage.py crontab show
-
-## Quitar todos los jobs de django-crontab:
-python3 manage.py crontab remove
+python3 manage.py crontab add               ## Agregar los jobs instalados
+python3 manage.py crontab show              ## Ver los jobs instalados
+ python3 manage.py crontab remove           ## Quitar todos los jobs de django-crontab
 
 
 ## crear el archivo: core/cron/cron.py:
@@ -351,20 +349,22 @@ def hello_cron():
 ## Luego en settings.py:
 
 ...
-CRONJOBS = [
-    ("*/1 * * * *", "core.cron.hello_cron"),  # cada minuto (para probar)
-]
-...
-
-...
 INSTALLED_APPS = [
     ...
     "django_crontab",
 ]
 ...
 
+...
+# CRONJOBS
+CRONJOBS = [
+    ("*/1 * * * *", "core.cron.hello_cron"),  # cada minuto (para probar)
+]
+...
 
-## 20.- Instalar dotenv:
+
+
+## 18.- Instalar dotenv:
 pip install python-dotenv
 
 ## Archivo settings.py:
@@ -386,10 +386,10 @@ MESSAGE_CHANNEL_URL = os.getenv("MESSAGE_CHANNEL_URL")
 
 
 
-## 20.- Crear MessageChannel core/messages/message_channel.py
+## 19.- Crear MessageChannel core/messages/message_channel.py
 
 
-## 21.- Crear startapp "home"
+## 20.- Crear startapp "home"
 
 python3 manage.py startapp home
 
@@ -427,7 +427,7 @@ urlpatterns = [
 
 
 
-## 22 .- comprobar dentro del settings: 
+## 21 .- comprobar dentro del settings: 
 ...
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
@@ -442,6 +442,11 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 python3 manage.py runserver
 
 ```
+
+
+
+
+
 
 ## Ejemplo para CREAR una app:
 
@@ -620,6 +625,9 @@ service apache2 restart
 python manage.py collectstatic --noinput
 
 ## Y en el plesk Additional nginx directives:
+
+chmod -R o+rX /var/www/vhosts/splytin.com/python.splytin.com/staticfiles
+
 ...
 location /static/ {
 	alias /var/www/vhosts/splytin.com/python.splytin.com/staticfiles/;
