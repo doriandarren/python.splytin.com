@@ -20,7 +20,7 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-load_dotenv(BASE_DIR / ".env")  # ✅ carga el .env una sola vez
+load_dotenv(BASE_DIR / ".env")                          # Enviroment
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -164,18 +164,26 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+## JWT
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=120),
+}
 
 
 ## CORS
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
-## JWT
-SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=120),
-}
+
+## Cron
+CRONJOBS = [
+    ("*/1 * * * *", "core.cron.cron.hello_cron"),  # cada minuto (para probar)
+]
+
 
 
 ## User
@@ -189,7 +197,3 @@ MESSAGE_CHANNEL_URL = os.getenv("MESSAGE_CHANNEL_URL")
 
 
 
-## Cron
-CRONJOBS = [
-    ("*/1 * * * *", "core.cron.cron.hello_cron"),  # cada minuto (para probar)
-]

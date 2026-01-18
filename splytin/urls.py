@@ -32,7 +32,7 @@ from ollama_texts.api.router import router_ollama_text
 
 schema_view = get_schema_view(
    openapi.Info(
-      title="Splkytin - API",
+      title="Splytin - API",
       default_version='v1',
       description="Documentation API Splytin",
       terms_of_service="https://api.splytin.com/policies/terms/",
@@ -46,21 +46,20 @@ schema_view = get_schema_view(
 
 
 urlpatterns = [
-    #Home
-    path('', include('home.urls')),
-    
+    # ADMIN
+    path('admin/', admin.site.urls),
     # Docs
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     
-    # API
+    #Home
+    path('', include('home.urls')),
     
     # Dev
     path('api/v1/', include(router_dev.urls)),
     
-    # ADMIN
-    path('admin/', admin.site.urls),
+    # API
     
     # USERS
     path('api/v1/', include('users.api.router')),

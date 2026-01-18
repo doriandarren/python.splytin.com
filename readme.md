@@ -120,6 +120,16 @@ DATABASES = {
 ...
 
 
+## Agregar tambien esto:
+...
+# Default primary key field type
+# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+...
+
+
+
+
 python3 manage.py migrate
 
 
@@ -129,6 +139,7 @@ pip3 install --upgrade pip
 pip3 install requests                   ## Libreria
 pip3 install django
 django-admin startproject splytin .     ## Con el punto (.) final para que no se cree duplicado
+
 python3 manage.py migrate
 
 # 3.- Instalar django rest
@@ -190,6 +201,8 @@ urlpatterns = [
 ]
 ...
 
+
+
 # 7.-  Veirificar si hay migraciones:
 python3 manage.py makemigrations
 
@@ -247,6 +260,7 @@ path('api/v1/', include('users.api.router')),
 
 
 
+################################### TODO AQUIIIIIII
 
 ## 13.- Instalar JWT -> https://django-rest-framework-simplejwt.readthedocs.io/en/latest/
 
@@ -317,7 +331,8 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 ...
 ## CORS
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = True
+
+
 ...
 
 
@@ -333,7 +348,7 @@ pip install django-crontab
 ## Ejecuta:
 python3 manage.py crontab add               ## Agregar los jobs instalados
 python3 manage.py crontab show              ## Ver los jobs instalados
- python3 manage.py crontab remove           ## Quitar todos los jobs de django-crontab
+python3 manage.py crontab remove            ## Quitar todos los jobs de django-crontab
 
 
 ## crear el archivo: core/cron/cron.py:
@@ -384,7 +399,7 @@ MESSAGE_CHANNEL_URL = os.getenv("MESSAGE_CHANNEL_URL")
 
 
 
-
+#######-------------- AYER AQUIIIIIIII
 
 ## 19.- Crear MessageChannel core/messages/message_channel.py
 
@@ -427,7 +442,7 @@ urlpatterns = [
 
 
 
-## 21 .- comprobar dentro del settings: 
+## 21 .- comprobar dentro del settings:
 ...
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
@@ -442,11 +457,6 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 python3 manage.py runserver
 
 ```
-
-
-
-
-
 
 ## Ejemplo para CREAR una app:
 
