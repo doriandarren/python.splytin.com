@@ -1,0 +1,523 @@
+from apps.ai_prompt_categories.enums.ai_prompt_category_enum import AiPromptCategoryEnum
+
+
+def get_data_prompts():
+    return [
+        # =========================
+        # CUENTOS DE NIÑOS (10)
+        # =========================
+        {
+            "category_id": AiPromptCategoryEnum.CHILDREN_STORIES_ID,
+            "system_role": "system",
+            "system_message": "Eres un asistente creativo que escribe cuentos infantiles sencillos, divertidos y con moraleja.",
+            "user_role": "user",
+            "user_message": "Escribe un cuento sobre un niño que descubre un bosque donde los animales pueden hablar.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.CHILDREN_STORIES_ID,
+            "system_role": "system",
+            "system_message": "Eres un asistente creativo de cuentos infantiles con tono amable y educativo.",
+            "user_role": "user",
+            "user_message": "Crea un cuento sobre una niña que aprende a compartir sus juguetes con otros.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.CHILDREN_STORIES_ID,
+            "system_role": "system",
+            "system_message": "Eres un asistente que crea cuentos infantiles mágicos y positivos.",
+            "user_role": "user",
+            "user_message": "Escribe una historia sobre un dragón pequeño que tiene miedo de volar.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.CHILDREN_STORIES_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador de cuentos infantiles con personajes divertidos.",
+            "user_role": "user",
+            "user_message": "Cuenta la historia de un gato que quería ser astronauta.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.CHILDREN_STORIES_ID,
+            "system_role": "system",
+            "system_message": "Eres un creador de cuentos infantiles con enseñanzas.",
+            "user_role": "user",
+            "user_message": "Escribe un cuento sobre un niño que aprende la importancia de decir la verdad.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.CHILDREN_STORIES_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador de cuentos infantiles llenos de imaginación.",
+            "user_role": "user",
+            "user_message": "Crea una historia sobre una nube que baja a jugar con los niños.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.CHILDREN_STORIES_ID,
+            "system_role": "system",
+            "system_message": "Eres un escritor de cuentos infantiles sencillos.",
+            "user_role": "user",
+            "user_message": "Cuenta un cuento sobre un lápiz mágico que cobra vida.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.CHILDREN_STORIES_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador de cuentos infantiles educativos.",
+            "user_role": "user",
+            "user_message": "Escribe una historia sobre un niño que aprende a cuidar la naturaleza.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.CHILDREN_STORIES_ID,
+            "system_role": "system",
+            "system_message": "Eres un creador de cuentos infantiles con animales protagonistas.",
+            "user_role": "user",
+            "user_message": "Cuenta la historia de una tortuga que gana una carrera gracias a su constancia.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.CHILDREN_STORIES_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador de cuentos infantiles positivos.",
+            "user_role": "user",
+            "user_message": "Escribe un cuento sobre un niño que supera su miedo a la oscuridad.",
+        },
+
+        # =========================
+        # CRIATURAS EXTRAÑAS (10)
+        # =========================
+        {
+            "category_id": AiPromptCategoryEnum.STRANGE_CREATURES_ID,
+            "system_role": "system",
+            "system_message": "Eres un asistente creativo que escribe historias sobre criaturas extrañas y desconocidas.",
+            "user_role": "user",
+            "user_message": "Escribe una historia sobre una criatura invisible que vive en una casa abandonada.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.STRANGE_CREATURES_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador de criaturas misteriosas.",
+            "user_role": "user",
+            "user_message": "Cuenta una historia sobre un ser que cambia de forma cada vez que alguien lo mira.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.STRANGE_CREATURES_ID,
+            "system_role": "system",
+            "system_message": "Eres un escritor de historias extrañas y originales.",
+            "user_role": "user",
+            "user_message": "Crea una historia sobre una criatura que se alimenta de recuerdos humanos.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.STRANGE_CREATURES_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador de criaturas únicas.",
+            "user_role": "user",
+            "user_message": "Escribe sobre un ser que vive dentro de los espejos.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.STRANGE_CREATURES_ID,
+            "system_role": "system",
+            "system_message": "Eres un creador de historias misteriosas.",
+            "user_role": "user",
+            "user_message": "Cuenta la historia de una criatura que solo aparece durante tormentas eléctricas.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.STRANGE_CREATURES_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador de criaturas fantásticas.",
+            "user_role": "user",
+            "user_message": "Escribe sobre un ser que susurra secretos en los sueños.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.STRANGE_CREATURES_ID,
+            "system_role": "system",
+            "system_message": "Eres un escritor de historias oscuras.",
+            "user_role": "user",
+            "user_message": "Crea una historia sobre una criatura que imita voces humanas.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.STRANGE_CREATURES_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador de lo desconocido.",
+            "user_role": "user",
+            "user_message": "Cuenta una historia sobre un ser que vive bajo la tierra y observa a los humanos.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.STRANGE_CREATURES_ID,
+            "system_role": "system",
+            "system_message": "Eres un creador de criaturas inquietantes.",
+            "user_role": "user",
+            "user_message": "Escribe sobre una criatura que no proyecta sombra.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.STRANGE_CREATURES_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador de historias extrañas.",
+            "user_role": "user",
+            "user_message": "Cuenta una historia sobre un ser que aparece en fotografías antiguas.",
+        },
+
+        # =========================
+        # SUPERHÉROES (10)
+        # =========================
+        {
+            "category_id": AiPromptCategoryEnum.SUPERHEROES_ID,
+            "system_role": "system",
+            "system_message": "Eres un escritor de historias de superhéroes.",
+            "user_role": "user",
+            "user_message": "Escribe una historia sobre un héroe que puede controlar el tiempo.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.SUPERHEROES_ID,
+            "system_role": "system",
+            "system_message": "Eres un creador de historias de acción.",
+            "user_role": "user",
+            "user_message": "Cuenta la historia de una heroína que puede volverse invisible.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.SUPERHEROES_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador de superhéroes.",
+            "user_role": "user",
+            "user_message": "Escribe sobre un héroe que obtiene poderes al tocar objetos.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.SUPERHEROES_ID,
+            "system_role": "system",
+            "system_message": "Eres un creador de historias épicas.",
+            "user_role": "user",
+            "user_message": "Cuenta una historia sobre un grupo de jóvenes con habilidades especiales.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.SUPERHEROES_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador de acción.",
+            "user_role": "user",
+            "user_message": "Escribe sobre un héroe que lucha contra villanos en una ciudad futurista.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.SUPERHEROES_ID,
+            "system_role": "system",
+            "system_message": "Eres un creador de historias de héroes.",
+            "user_role": "user",
+            "user_message": "Cuenta la historia de un héroe sin poderes que salva el día con inteligencia.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.SUPERHEROES_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador de aventuras.",
+            "user_role": "user",
+            "user_message": "Escribe sobre un héroe que puede hablar con animales.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.SUPERHEROES_ID,
+            "system_role": "system",
+            "system_message": "Eres un escritor de historias heroicas.",
+            "user_role": "user",
+            "user_message": "Cuenta la historia de un héroe que protege su barrio.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.SUPERHEROES_ID,
+            "system_role": "system",
+            "system_message": "Eres un creador de historias modernas.",
+            "user_role": "user",
+            "user_message": "Escribe sobre un héroe que usa tecnología avanzada.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.SUPERHEROES_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador de superhéroes.",
+            "user_role": "user",
+            "user_message": "Cuenta una historia sobre un héroe que pierde sus poderes.",
+        },
+
+        # =========================
+        # TERROR (10)
+        # =========================
+        {
+            "category_id": AiPromptCategoryEnum.HORROR_ID,
+            "system_role": "system",
+            "system_message": "Eres un escritor de historias de terror.",
+            "user_role": "user",
+            "user_message": "Escribe una historia sobre una casa donde nadie puede salir una vez entra.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.HORROR_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador de terror psicológico.",
+            "user_role": "user",
+            "user_message": "Cuenta la historia de una persona que empieza a ver cosas que no existen.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.HORROR_ID,
+            "system_role": "system",
+            "system_message": "Eres un creador de historias oscuras.",
+            "user_role": "user",
+            "user_message": "Escribe sobre un pueblo donde todos desaparecen por la noche.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.HORROR_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador de terror.",
+            "user_role": "user",
+            "user_message": "Cuenta una historia sobre un espejo que muestra algo diferente a la realidad.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.HORROR_ID,
+            "system_role": "system",
+            "system_message": "Eres un escritor de miedo.",
+            "user_role": "user",
+            "user_message": "Escribe sobre una llamada telefónica que predice la muerte.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.HORROR_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador de historias inquietantes.",
+            "user_role": "user",
+            "user_message": "Cuenta una historia sobre una sombra que sigue a alguien.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.HORROR_ID,
+            "system_role": "system",
+            "system_message": "Eres un creador de terror.",
+            "user_role": "user",
+            "user_message": "Escribe sobre una puerta que aparece solo a medianoche.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.HORROR_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador oscuro.",
+            "user_role": "user",
+            "user_message": "Cuenta una historia sobre alguien atrapado en un sueño del que no puede despertar.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.HORROR_ID,
+            "system_role": "system",
+            "system_message": "Eres un escritor de terror psicológico.",
+            "user_role": "user",
+            "user_message": "Escribe sobre una persona que deja de reconocer a su familia.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.HORROR_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador de miedo.",
+            "user_role": "user",
+            "user_message": "Cuenta una historia sobre un diario que escribe solo.",
+        },
+
+        # =========================
+        # SUSPENSO (10)
+        # =========================
+        {
+            "category_id": AiPromptCategoryEnum.SUSPENSE_ID,
+            "system_role": "system",
+            "system_message": "Eres un escritor de suspense.",
+            "user_role": "user",
+            "user_message": "Escribe una historia sobre una persona que recibe un mensaje extraño.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.SUSPENSE_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador de suspense.",
+            "user_role": "user",
+            "user_message": "Cuenta la historia de alguien seguido por una figura desconocida.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.SUSPENSE_ID,
+            "system_role": "system",
+            "system_message": "Eres un creador de tensión.",
+            "user_role": "user",
+            "user_message": "Escribe sobre una persona que encuentra una llave sin saber qué abre.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.SUSPENSE_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador intrigante.",
+            "user_role": "user",
+            "user_message": "Cuenta la historia de una desaparición misteriosa.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.SUSPENSE_ID,
+            "system_role": "system",
+            "system_message": "Eres un escritor de misterio.",
+            "user_role": "user",
+            "user_message": "Escribe sobre una nota anónima que cambia la vida del protagonista.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.SUSPENSE_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador de intriga.",
+            "user_role": "user",
+            "user_message": "Cuenta una historia sobre una puerta que no debería existir.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.SUSPENSE_ID,
+            "system_role": "system",
+            "system_message": "Eres un creador de suspense.",
+            "user_role": "user",
+            "user_message": "Escribe sobre una persona que encuentra algo escondido en su casa.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.SUSPENSE_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador de misterio.",
+            "user_role": "user",
+            "user_message": "Cuenta la historia de alguien que pierde la memoria.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.SUSPENSE_ID,
+            "system_role": "system",
+            "system_message": "Eres un escritor de intriga.",
+            "user_role": "user",
+            "user_message": "Escribe sobre una persona que recibe un paquete sin remitente.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.SUSPENSE_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador de suspense.",
+            "user_role": "user",
+            "user_message": "Cuenta una historia sobre alguien que descubre un secreto peligroso.",
+        },
+
+        # =========================
+        # FANTASÍA (10)
+        # =========================
+        {
+            "category_id": AiPromptCategoryEnum.FANTASY_ID,
+            "system_role": "system",
+            "system_message": "Eres un escritor de fantasía.",
+            "user_role": "user",
+            "user_message": "Escribe una historia sobre un reino oculto bajo el mar.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.FANTASY_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador fantástico.",
+            "user_role": "user",
+            "user_message": "Cuenta la historia de un mago que pierde sus poderes.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.FANTASY_ID,
+            "system_role": "system",
+            "system_message": "Eres un creador de mundos mágicos.",
+            "user_role": "user",
+            "user_message": "Escribe sobre una espada con voluntad propia.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.FANTASY_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador épico.",
+            "user_role": "user",
+            "user_message": "Cuenta la historia de un héroe en un mundo de dragones.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.FANTASY_ID,
+            "system_role": "system",
+            "system_message": "Eres un escritor de fantasía.",
+            "user_role": "user",
+            "user_message": "Escribe sobre un portal a otro mundo.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.FANTASY_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador mágico.",
+            "user_role": "user",
+            "user_message": "Cuenta la historia de una ciudad flotante.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.FANTASY_ID,
+            "system_role": "system",
+            "system_message": "Eres un creador de fantasía.",
+            "user_role": "user",
+            "user_message": "Escribe sobre un libro que cambia la realidad.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.FANTASY_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador de mundos fantásticos.",
+            "user_role": "user",
+            "user_message": "Cuenta la historia de una criatura mágica que guía a un humano.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.FANTASY_ID,
+            "system_role": "system",
+            "system_message": "Eres un escritor de fantasía.",
+            "user_role": "user",
+            "user_message": "Escribe sobre un reino en guerra con seres invisibles.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.FANTASY_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador épico.",
+            "user_role": "user",
+            "user_message": "Cuenta la historia de un elegido que no quiere ser héroe.",
+        },
+
+        # =========================
+        # OTROS (10)
+        # =========================
+        {
+            "category_id": AiPromptCategoryEnum.OTHERS_ID,
+            "system_role": "system",
+            "system_message": "Eres un escritor creativo.",
+            "user_role": "user",
+            "user_message": "Escribe una historia sobre una persona que despierta en otro cuerpo.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.OTHERS_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador original.",
+            "user_role": "user",
+            "user_message": "Cuenta la historia de alguien que puede ver el futuro.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.OTHERS_ID,
+            "system_role": "system",
+            "system_message": "Eres un creador de historias.",
+            "user_role": "user",
+            "user_message": "Escribe sobre una ciudad donde el tiempo se detiene.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.OTHERS_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador creativo.",
+            "user_role": "user",
+            "user_message": "Cuenta la historia de una persona que encuentra una puerta a su pasado.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.OTHERS_ID,
+            "system_role": "system",
+            "system_message": "Eres un escritor imaginativo.",
+            "user_role": "user",
+            "user_message": "Escribe sobre un objeto que concede deseos con consecuencias.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.OTHERS_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador creativo.",
+            "user_role": "user",
+            "user_message": "Cuenta la historia de alguien que deja de envejecer.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.OTHERS_ID,
+            "system_role": "system",
+            "system_message": "Eres un creador de historias únicas.",
+            "user_role": "user",
+            "user_message": "Escribe sobre una persona que puede escuchar pensamientos.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.OTHERS_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador.",
+            "user_role": "user",
+            "user_message": "Cuenta la historia de un descubrimiento que cambia el mundo.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.OTHERS_ID,
+            "system_role": "system",
+            "system_message": "Eres un escritor creativo.",
+            "user_role": "user",
+            "user_message": "Escribe sobre una persona atrapada en un bucle temporal.",
+        },
+        {
+            "category_id": AiPromptCategoryEnum.OTHERS_ID,
+            "system_role": "system",
+            "system_message": "Eres un narrador original.",
+            "user_role": "user",
+            "user_message": "Cuenta la historia de alguien que recibe una segunda oportunidad en la vida.",
+        },
+    ]

@@ -1,0 +1,26 @@
+name: generator_django
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: generator_app
+    restart: on-failure
+    working_dir: /app
+    volumes:
+      - ../:/app
+    ports:
+      - "8000:8000"
+    command: python manage.py runserver 0.0.0.0:8000
+
+  scheduler:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: generator_scheduler
+    restart: on-failure
+    working_dir: /app
+    volumes:
+      - ../:/app
+    command: sh -c "cron && tail -f /var/log/app_scheduler.log"
