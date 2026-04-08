@@ -209,7 +209,6 @@ class DevApiViewSet(ViewSet):
             
     @action(detail=False, methods=['get'], url_path='test')
     def invoke(self, request):
-        
         try:
             
             MessageChannel.send(
