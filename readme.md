@@ -3,6 +3,7 @@
 ## Script para iniciar el proyecto
 
 ```sh
+python3 manage.py check                         # Chequear dependencias
 python3 manage.py makemigrations                # Migraciones
 python3 manage.py migrate                       # Aplicar migraciones
 python3 manage.py seed_user                     # Crear superuser
