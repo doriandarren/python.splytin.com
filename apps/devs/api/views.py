@@ -153,8 +153,8 @@ class DevApiViewSet(ViewSet):
 
 
 
-    @action(detail=False, methods=['get'], url_path='test____')
-    def invoke____(self, request):
+    @action(detail=False, methods=['get'], url_path='test')
+    def invoke(self, request):
         
         
         try:
@@ -165,7 +165,7 @@ class DevApiViewSet(ViewSet):
             
             
             # 1.- 
-            # ai_text_generation = self.service_generation.get_comfyui_text(prompt)
+            ai_text_generation = self.service_generation.get_comfyui_text(prompt)
             
             
             ## 2.-
@@ -192,7 +192,7 @@ class DevApiViewSet(ViewSet):
             response = {
                 ##"text_generation": aiTextGenerationSerializer(ai_text_generation).data,
                 "message": "OK",
-                # "ai_text_generation_id": ai_text_generation.id,
+                "ai_text_generation_id": ai_text_generation.id,
                 "image_generation_id": image_generation.id,
                 "image_download": image_download
             }
@@ -207,8 +207,8 @@ class DevApiViewSet(ViewSet):
             
             
             
-    @action(detail=False, methods=['get'], url_path='test')
-    def invoke(self, request):
+    @action(detail=False, methods=['get'], url_path='test_____')
+    def invoke___(self, request):
         
         
         x = 1 / 0

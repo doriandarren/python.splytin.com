@@ -124,7 +124,9 @@ pip install pdfkit                              # Crear PDF
 brew install redis
 
 # Iniciar el servicio queda siempre
-brew services start redis 
+brew services list                              # Listar
+brew services start redis                       # Iniciar
+brew services stop redis                        # Parar
 
 # Verificar
 redis-cli ping
