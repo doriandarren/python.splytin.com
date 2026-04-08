@@ -153,8 +153,8 @@ class DevApiViewSet(ViewSet):
 
 
 
-    @action(detail=False, methods=['get'], url_path='test')
-    def invoke(self, request):
+    @action(detail=False, methods=['get'], url_path='test__pp')
+    def invoke__ppp(self, request):
         
         
         try:
@@ -207,16 +207,15 @@ class DevApiViewSet(ViewSet):
             
             
             
-    @action(detail=False, methods=['get'], url_path='test_____')
-    def invoke___(self, request):
-        
-        
-        x = 1 / 0
-        
+    @action(detail=False, methods=['get'], url_path='test')
+    def invoke(self, request):
         
         try:
             
-            
+            MessageChannel.send(
+                text=f"Invoke ejecutado: {time.time()}",
+                title="CRON TEST",
+            )
             
             response = {
                 "message": "OK"

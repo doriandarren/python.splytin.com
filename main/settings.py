@@ -193,14 +193,14 @@ CELERY_TASK_SERIALIZER = "json"
 
 # Celery Beat Schedule
 CELERY_BEAT_SCHEDULE = {
-    "start-10-minutes": {
+    "task-10-minutes": {
         "task": "apps.devs.tasks.start",
-        "schedule": crontab(minute="*/30"),
-    },
-    "start2-20-minutes": {
-        "task": "apps.devs.tasks.start2",
         "schedule": crontab(minute="*/5"),
     },
+    # "start2-20-minutes": {
+    #     "task": "apps.devs.tasks.start2",
+    #     "schedule": crontab(minute="*/5"),
+    # },
 }
 
 
