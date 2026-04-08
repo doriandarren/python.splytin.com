@@ -30,7 +30,7 @@ class DevApiViewSet(ViewSet):
             )
             
             response = {
-                "message": "OK"
+                "message": "OK OKKKKK"
             }
             return Response(response, status=status.HTTP_200_OK)
         except Exception as e:
