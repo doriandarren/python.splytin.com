@@ -1,23 +1,6 @@
 # Prompts
 
 
-## Subida a Plesk:
-
-```sh
-
-- Entorno virtual para el proyecto
-- Modificar ENV: cp .env.example .env
-- Ejecutar comandos readme.md - Script para iniciar el proyecto
-- Permisos a carpeta logs: chmod 777 -R logs/
-- Conectar DB: 
-    * Base datos SQLte: chmod 666 db.sqlite3
-    * Base datos PostgreSQL
-
-
-
-
-```
-
 ## Tables:
 
 📄 Table: ai_prompt_categories - AiPromptCategory - AiPromptCategories

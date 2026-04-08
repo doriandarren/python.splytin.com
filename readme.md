@@ -6,6 +6,7 @@
 python3 manage.py check                         # Chequear dependencias
 python3 manage.py makemigrations                # Migraciones
 python3 manage.py migrate                       # Aplicar migraciones
+python manage.py collectstatic --noinput        # Recopilar archivos estaticos
 python3 manage.py seed_user                     # Crear superuser
 python3 manage.py seed_default                  # Crear Prompts
 python3 manage.py runserver                     # Ejecutar servidor
@@ -19,13 +20,7 @@ python3 manage.py runserver                     # Ejecutar servidor
 - source .venv/bin/activate                     # Activar entorno
 - deactive                                      # Desactivar entorno
 
-## Entorno virtual Windows
-- python3.exe -m venv venv                      # Windows
-- .\venv\bin\activate                           # Windows
-- python3.exe -m pip install --upgrade pip      # Windows
-- deactivate                                    # Desactivar
-
-## Actualizar
+## Actualizar PIP
 pip install --upgrade pip
 
 
@@ -75,7 +70,6 @@ python3 manage.py runserver 8001
 
 ```
 
-
 ## Commands
 
 ```sh
@@ -85,7 +79,6 @@ python3 manage.py clear_migrations --dry-run     # Muestra las migraciones
 python3 manage.py clear_migrations               # Elimina las migraciones
 
 ```
-
 
 ## Error: python manage.py makemigrations
 
@@ -105,16 +98,11 @@ find ./apps -path "*/migrations/*.py" -not -name "__init__.py"
 find ./apps -path "*/migrations/*.pyc"
 ```
 
-
-
 ## Libraries
 
 ```sh
 pip install pdfkit                              # Crear PDF
 ```
-
-
-
 
 # Celery y django-celery-beat
 
@@ -179,5 +167,30 @@ cat logs/django.log
 cat logs/celery_worker.log
 cat logs/celery_beat.log
 
+
+```
+
+## By Plesk:
+
+```sh
+
+- Entorno virtual para el proyecto
+- Modificar ENV: cp .env.example .env
+- Ejecutar comandos readme.md - Script para iniciar el proyecto
+- Cambiar permisos:
+    chown -R xxx:pppp /var/www/vhosts/x.com/api.x.com
+    find /var/www/vhosts/x.com/api.x.com -type d -exec chmod 755 {} \;
+    find /var/www/vhosts/x.com/api.x.com -type f -exec chmod 644 {} \;
+    chmod +x manage.py
+    chmod +x start_celery.sh
+    chmod -R 775 logs
+    chmod -R 775 tmp
+
+- Conectar DB:
+    * Base datos SQLte: chmod 666 db.sqlite3
+    * Base datos PostgreSQL
+
+## Reiniciar app con Passenger
+touch tmp/restart.txt
 
 ```
