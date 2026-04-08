@@ -1,9 +1,5 @@
-import random
 import time
 from celery import shared_task
-from django.tasks import task
-from apps.ai_prompt_generations.services.ai_prompt_generation_service import AiPromptGenerationService
-from apps.devs.services.ai_generation_service import AIGenerationService
 from core.messages.message_channel import MessageChannel
 
 
