@@ -231,7 +231,7 @@ LOGGING = {
     "handlers": {
         "file": {
             "level": "ERROR",
-            "class": "core.logs.logging_handlers.DailyFileHandler",
+            "class": "core.custom_logging.logging_handlers.DailyFileHandler",
             "log_dir": os.path.join(BASE_DIR, "logs"),
             "prefix": "django_log",
             "formatter": "verbose",
