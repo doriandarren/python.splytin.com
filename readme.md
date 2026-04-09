@@ -181,10 +181,12 @@ cat logs/celery_beat.log
     chown -R xxx:pppp /var/www/vhosts/x.com/api.x.com
     find /var/www/vhosts/x.com/api.x.com -type d -exec chmod 755 {} \;
     find /var/www/vhosts/x.com/api.x.com -type f -exec chmod 644 {} \;
-    chmod +x manage.py
-    chmod +x start_celery.sh
     chmod -R 775 logs
     chmod -R 775 tmp
+    chmod +x manage.py
+    chmod +x start_celery.sh
+    chmod +x .venv/bin/celery
+    chmod +x .venv/bin/python
 
 - Conectar DB:
     * Base datos SQLte: chmod 666 db.sqlite3
@@ -192,5 +194,75 @@ cat logs/celery_beat.log
 
 ## Reiniciar app con Passenger
 touch tmp/restart.txt
+
+
+
+
+## Para Cron: Celery + redis
+
+## Redis (instalado a nivel global en el servidor)
+- Verificar Redis:
+    redis-cli ping   # PONG
+
+## Configuración en Django (settings.py)
+- Configurar broker y backend:
+    CELERY_BROKER_URL=redis://127.0.0.1:6379/0
+    CELERY_RESULT_BACKEND=redis://127.0.0.1:6379/1
+
+- Agregar:
+    django_celery_beat
+
+- Migraciones:
+    python manage.py migrate
+
+
+## Crear carpeta de logs
+mkdir -p logs
+
+
+## Crear servicios systemd
+
+### Worker
+sudo nano /etc/systemd/system/celery-python-splytin-worker.service
+
+- Buscar archivo
+
+### Beat
+sudo nano /etc/systemd/system/celery-python-splytin-beat.service
+
+- Buscar archivo
+
+
+## Activar servicios
+sudo systemctl daemon-reload
+
+sudo systemctl enable celery-python-splytin-worker
+sudo systemctl enable celery-python-splytin-beat
+
+
+## Iniciar servicios
+sudo systemctl start celery-python-splytin-worker
+sudo systemctl start celery-python-splytin-beat
+
+
+## Ver estado
+sudo systemctl status celery-python-splytin-worker
+sudo systemctl status celery-python-splytin-beat
+
+
+## Logs
+tail -f logs/celery_worker.log
+tail -f logs/celery_beat.log
+
+
+## Reiniciar servicios
+sudo systemctl restart celery-python-splytin-worker
+sudo systemctl restart celery-python-splytin-beat
+
+
+## Parar servicios
+sudo systemctl stop celery-python-splytin-worker
+sudo systemctl stop celery-python-splytin-beat
+
 
 ```
