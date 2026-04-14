@@ -1,5 +1,8 @@
 # Prompts
 
+- Crear Postman para la API
+- User password por default en el .env y en seeder
+- Revisar auth -> por email no por username
 
 ## Tables:
 

@@ -3,7 +3,7 @@ from apps.ai_prompt_categories.api.views import AiPromptCategoryApiViewSet
 
 # Add urls.py:
 # from apps.ai_prompt_categories.api.router import router_ai_prompt_category
-# path('api/v1/', include(router_ai_prompt_category.urls))
+# path('api/v1/', include(router_ai_prompt_category.urls)),
 
 
 # example
