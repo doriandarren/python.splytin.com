@@ -3,11 +3,21 @@
 ## Script para iniciar el proyecto
 
 ```sh
+python3 -m venv .venv
+source .venv/bin/activate 
+pip install --upgrade pip
+pip install -r requirements.txt
+
+Crear raíz del proyecto: 
+- Archivo .env -> chmod 600 /var/www/vhosts/splytin.com/python.splytin.com/.env
+- Carpeta logs
+- Carpeta media
+
 python3 manage.py check                         # Chequear dependencias
 python3 manage.py makemigrations                # Migraciones
 python3 manage.py migrate                       # Aplicar migraciones
 python manage.py collectstatic --noinput        # Recopilar archivos estaticos
-python3 manage.py seed_user                     # Crear superuser
+python3 manage.py seed_users                    # Crear superuser
 python3 manage.py seed_default                  # Crear Prompts
 python3 manage.py runserver                     # Ejecutar servidor
 ```

@@ -22,6 +22,7 @@ from django.urls import re_path
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from apps.users.api.router import router_user
 from apps.ai_prompt_categories.api.router import router_ai_prompt_category
 from apps.ai_prompt_generations.api.router import router_ai_prompt_generation
 from apps.ai_text_generations.api.router import router_ai_text_generation
@@ -53,6 +54,11 @@ urlpatterns = [
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     # Home
     path("", TemplateView.as_view(template_name="index.html"), name="home"),
+    
+    # Users
+    path('api/v1/', include('apps.users.api.router')),
+    #path('api/v1/', include(router_user.urls)),
+    
     
     # Dev
     path('api/v1/', include(router_dev.urls)),
